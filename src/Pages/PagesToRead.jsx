@@ -15,6 +15,7 @@ import { useLoaderData } from 'react-router-dom';
 const options = {}
 const PagesToRead = () => {
     const [addbooks, setaddbooks] = useState([]);
+    const [label,setlabel]= useState([])
     const books = useLoaderData();
     useEffect(() => {
         const storebook = getStoreData()
@@ -27,18 +28,23 @@ const PagesToRead = () => {
                     storebooks.push(book)
 
                 }
-
             }
-            // const bookName = addbooks.map(book=>{book.bookName})
-            // const totalPages = addbooks.map(book=>{book.totalPages})
-            // console.log(bookName,totalPages)
             setaddbooks(storebooks)
-            // console.log(addbooks)
             return 
-
-           
-           
-        }}, [books])
+}
+if(storebook.length > 0){
+    const bookName=[]
+    for(const book of addbooks){
+        const bookname =book.map(book =>book.bookName == bookname)
+        console.log(bookname)
+       
+    } 
+    setlabel(bookName)
+    console.log(label)
+    return
+}
+console.log(label)
+}, [books])
 
     const data = {
         labels: ['Jun', 'Jul', 'Aug', 'Jul', 'Aug'],
@@ -51,9 +57,9 @@ const PagesToRead = () => {
     return (
         <div>
 
-         { addbooks.map((book,idx) =><div key={idx}><a href="">{book.bookName}</a></div>)}
-         { addbooks.map((book,idx) =><div key={idx}><a href="">{book.totalPages}</a></div>)}
-
+<h2 className=''> <span>bookname :</span>   { addbooks.map((book,idx) =><span key={idx} ><a href="" >{`"${book.bookName}"`}</a></span>)}</h2>
+   <h2 className='flex gap-x-1 items-center'><span>totalPages :</span> { addbooks.map((book,idx) =><span key={idx}><a href="">{`"${book.totalPages}"`}</a></span>)}</h2>     
+     
             <Line datasetIdKey='id' data={data} options={options} />
         </div>
     );
