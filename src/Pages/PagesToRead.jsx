@@ -52,7 +52,7 @@ const PagesToRead = () => {
         <div>
 
          { addbooks.map((book,idx) =><div key={idx}><a href="">{book.bookName}</a></div>)}
-
+         { addbooks.map((book,idx) =><div key={idx}><a href="">{book.totalPages}</a></div>)}
 
             <Line datasetIdKey='id' data={data} options={options} />
         </div>
