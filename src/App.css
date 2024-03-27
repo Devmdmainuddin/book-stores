@@ -1,0 +1,7 @@
+
+
+.divide-y > :not([hidden]) ~ :not([hidden]) {
+  --tw-divide-y-reverse: 0;
+  border-top-width: none;
+  border-bottom-width: none;
+}
